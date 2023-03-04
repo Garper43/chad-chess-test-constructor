@@ -14,7 +14,7 @@ body, html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #9e5050;
+    background-color: #509e9e;
 }
 
 #canvas-wrapper h1 {
@@ -53,8 +53,23 @@ body, html {
     margin-right: 1em;
 }
 
-#piece-select button {
+#piece-select img:hover {
     transition: all 200ms;
+    translate: 0.4em 0.4em;
+    box-shadow: #2c2b2b 0.2em 0.2em;
+    background-color: #cdc5bc;
+}
+
+#piece-select input[type="radio"]:checked+img {
+    transition: all 200ms;
+    translate: 0.4em 0.4em;
+    box-shadow: #2c2b2b 0.2em 0.2em;
+    background-color: #cdc5bc;
+}
+
+#piece-select img {
+    transition: all 200ms;
+    image-rendering: optimizeSpeed;
     height: 10vh;
     width: 10vh;
     padding: 0.5em;
@@ -64,14 +79,7 @@ body, html {
     position: relative;
 }
 
-#piece-select button:hover {
-    transition: all 200ms;
-    translate: 0.4em 0.4em;
-    box-shadow: #2c2b2b 0.2em 0.2em;
-    background-color: #cdc5bc;
-}
-
-#piece-select img {
+.piece-radio {
     image-rendering: optimizeSpeed;
-    height: 100%;
+    width: 10vh;
 }

@@ -15,44 +15,6 @@ public class ChessBoard {
     private String winner;
 
     public ChessBoard() {
-        //add white pawns
-        for(int i = 0; i < SIZE; i++) {
-            board[i][6] = new Pawn(Color.WHITE);
-        }
-
-        //add bishops
-        board[2][7] = new Bishop(Color.WHITE);
-        board[5][7] = new Bishop(Color.WHITE);
-
-        board[2][0] = new Bishop(Color.BLACK);
-        board[5][0] = new Bishop(Color.BLACK);
-
-        //add knights
-        board[1][7] = new Knight(Color.WHITE);
-        board[6][7] = new Knight(Color.WHITE);
-
-        board[1][0] = new Knight(Color.BLACK);
-        board[6][0] = new Knight(Color.BLACK);
-
-        //add Rooks
-        board[0][7] = new Rook(Color.WHITE);
-        board[7][7] = new Rook(Color.WHITE);
-
-        board[0][0] = new Rook(Color.BLACK);
-        board[7][0] = new Rook(Color.BLACK);
-
-        //add Queens
-        board[3][7] = new Queen(Color.WHITE);
-        board[3][0] = new Queen(Color.BLACK);
-
-        //add Queens
-        board[4][7] = new King(Color.WHITE);
-        board[4][0] = new King(Color.BLACK);
-
-        //add black pawns
-        for(int i = 0; i < SIZE; i++) {
-            board[i][1] = new Pawn(Color.BLACK);
-        }
     }
 
     public Piece[][] getBoard() {
