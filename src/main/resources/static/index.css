@@ -10,6 +10,7 @@ body, html {
     height: 100%;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
 }
 
 #canvas-wrapper {
@@ -90,9 +91,25 @@ body, html {
 }
 
 #instructions {
+    transition: all 200ms;
     position: absolute;
-    right: 0em;
+    right: -44em;
     width: max-content;
+    height: min-content;
+}
+
+#instructions:hover {
+    right: 0em;
+}
+
+#instructions h1 {
+    transform: rotate(-90deg);
+    width: min-content;
+    position: relative;
+    bottom: -3.1em;
+    left: -0.7em;
+    font-size: 1.5em;
+    line-height: 0px;
 }
 
 #instructions p {
@@ -100,4 +117,5 @@ body, html {
     padding: 1em;
     background-color: var(--white);
     border: var(--black) 0.4em solid;
+    padding-left: 6em;
 }
