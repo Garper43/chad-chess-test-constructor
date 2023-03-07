@@ -1,5 +1,9 @@
-var isDragged = false;
 var draggedPiece = null;
+
+//disable context menu
+window.oncontextmenu = () => {
+    return false;
+}
 
 canvas.addEventListener("mouseup", (ev) => {
     if(document.querySelector('input') == undefined) {
@@ -8,12 +12,16 @@ canvas.addEventListener("mouseup", (ev) => {
 
     x = ~~(ev.offsetX/canvas.offsetWidth*8);
     y = ~~(ev.offsetY/canvas.offsetHeight*8);
+
     var val;
-    
+
     //detect whether a piece is being moved or if a new one is created
-    if(isDragged == true && draggedPiece != null) {
+    console.log(ev.button);
+    if(draggedPiece != null) {
         val = draggedPiece;
-        isDragged = false;
+        draggedPiece = null;
+    } else if(ev.button == 2) {
+        val = null;
     } else {
         val = document.querySelector('input[name="selected-piece"]:checked').value;
     }
@@ -24,10 +32,13 @@ canvas.addEventListener("mouseup", (ev) => {
 });
 
 canvas.addEventListener("mousedown", (ev) => {
+    if(ev.button == 2) {
+        return;
+    }
+
     x = ~~(ev.offsetX/canvas.offsetWidth*8);
     y = ~~(ev.offsetY/canvas.offsetHeight*8);
 
-    isDragged = true;
     draggedPiece = board.pieces[x][y];
     board.pieces[x][y] = null;
 
@@ -35,7 +46,7 @@ canvas.addEventListener("mousedown", (ev) => {
 });
 
 canvas.addEventListener("mousemove", (ev) => {
-    if(!isDragged) {
+    if(draggedPiece == null) {
         return;
     }
 

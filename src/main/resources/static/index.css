@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+:root {
+    --white: #faf0e6;
+    --black: #141414;
+}
+
 body, html {
     margin: 0px;
     height: 100%;
@@ -27,7 +32,7 @@ body, html {
     display: block;
     width: 80vh;
     height: 80vh;
-    border: 1vh solid rgb(20, 20, 20);
+    border: 1vh solid #141414;
 }
 
 #cat {
@@ -56,14 +61,14 @@ body, html {
 #piece-select img:hover {
     transition: all 200ms;
     translate: 0.4em 0.4em;
-    box-shadow: #2c2b2b 0.2em 0.2em;
+    box-shadow: var(--black) 0.2em 0.2em;
     background-color: #cdc5bc;
 }
 
 #piece-select input[type="radio"]:checked+img {
     transition: all 200ms;
     translate: 0.4em 0.4em;
-    box-shadow: #2c2b2b 0.2em 0.2em;
+    box-shadow: var(--black) 0.2em 0.2em;
     background-color: #cdc5bc;
 }
 
@@ -74,7 +79,7 @@ body, html {
     width: 10vh;
     padding: 0.5em;
     border: black 0.4em solid;
-    background-color: #faf0e6;
+    background-color: var(--white);
     box-shadow: #2c2b2b 0.6em 0.6em;
     position: relative;
 }
@@ -82,4 +87,17 @@ body, html {
 .piece-radio {
     image-rendering: optimizeSpeed;
     width: 10vh;
+}
+
+#instructions {
+    position: absolute;
+    right: 0em;
+    width: max-content;
+}
+
+#instructions p {
+    white-space: pre-line;
+    padding: 1em;
+    background-color: var(--white);
+    border: var(--black) 0.4em solid;
 }
