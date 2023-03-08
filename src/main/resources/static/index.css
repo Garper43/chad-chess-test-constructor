@@ -109,7 +109,7 @@ button:hover {
     z-index: 1;
 }
 
-#instructions p:hover #instructions {
+#instructions:hover {
     right: 0em;
 }
 
