@@ -5,12 +5,30 @@
     --black: #141414;
 }
 
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
 body, html {
     margin: 0px;
     height: 100%;
     width: 100%;
-    font-family: 'Press Start 2P', cursive;
     overflow: hidden;
+}
+
+button {
+    transition: all 200ms;
+    padding: 0.2em;
+    border: var(--black) solid 0.2em;
+    background-color: var(--white);
+    box-shadow: #2c2b2b 0.4em 0.4em;
+    position: relative;
+}
+
+button:hover {
+    translate: 0.2em 0.2em;
+    box-shadow: var(--black) 0.2em 0.2em;
+    background-color: #cdc5bc;
 }
 
 #canvas-wrapper {
@@ -24,7 +42,6 @@ body, html {
 }
 
 #canvas-wrapper h1 {
-    font-family: 'Press Start 2P', cursive;
     color: white;
     text-shadow: 5px 5px black;
 }
@@ -59,20 +76,6 @@ body, html {
     margin-right: 1em;
 }
 
-#piece-select img:hover {
-    transition: all 200ms;
-    translate: 0.4em 0.4em;
-    box-shadow: var(--black) 0.2em 0.2em;
-    background-color: #cdc5bc;
-}
-
-#piece-select input[type="radio"]:checked+img {
-    transition: all 200ms;
-    translate: 0.4em 0.4em;
-    box-shadow: var(--black) 0.2em 0.2em;
-    background-color: #cdc5bc;
-}
-
 #piece-select img {
     transition: all 200ms;
     image-rendering: optimizeSpeed;
@@ -83,6 +86,13 @@ body, html {
     background-color: var(--white);
     box-shadow: #2c2b2b 0.6em 0.6em;
     position: relative;
+}
+
+#piece-select img:hover, #piece-select input[type="radio"]:checked+img {
+    transition: all 200ms;
+    translate: 0.4em 0.4em;
+    box-shadow: var(--black) 0.2em 0.2em;
+    background-color: #cdc5bc;
 }
 
 .piece-radio {
@@ -96,9 +106,10 @@ body, html {
     right: -44em;
     width: max-content;
     height: min-content;
+    z-index: 1;
 }
 
-#instructions:hover {
+#instructions p:hover #instructions {
     right: 0em;
 }
 
@@ -118,4 +129,23 @@ body, html {
     background-color: var(--white);
     border: var(--black) 0.4em solid;
     padding-left: 6em;
+}
+
+#controls-menu {
+    width: min-content;
+    position: absolute;
+    right: 3em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#controls-menu button {
+    width: 100%;
+    font-size: 2em;
+    padding: 0.2em;
+    text-align: center;
+    margin: 0.2em 0em;
+    border: var(--black) solid 0.2em;
 }
