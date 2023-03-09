@@ -3,16 +3,90 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
-        <title>Chad Chess</title>
+        <title>Chad Chess Test Constructor</title>
     </head>
 
     <body>
         <img id="cat" src="assets/me_when_castling.png" />
+
+        <form id="piece-select" >
+            <div id="white" class="pieces-container" >
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/pawn">
+                    <img class="piece-radio" src="assets/pieces/white/pawn.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/rook" />
+                    <img class="piece-radio" src="assets/pieces/white/rook.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/knight" />
+                    <img class="piece-radio" src="assets/pieces/white/knight.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/bishop" />
+                    <img class="piece-radio" src="assets/pieces/white/bishop.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/queen" />
+                    <img class="piece-radio" src="assets/pieces/white/queen.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="white/king" />
+                    <img class="piece-radio" src="assets/pieces/white/king.PNG" />
+                </label>
+            </div>
+            <div id="black" class="pieces-container" >
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/pawn">
+                    <img class="piece-radio" src="assets/pieces/black/pawn.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/rook" />
+                    <img class="piece-radio" src="assets/pieces/black/rook.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/knight" />
+                    <img class="piece-radio" src="assets/pieces/black/knight.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/bishop" />
+                    <img class="piece-radio" src="assets/pieces/black/bishop.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/queen" />
+                    <img class="piece-radio" src="assets/pieces/black/queen.PNG" />
+                </label>
+                <label>
+                    <input style="display:none" type="radio" name="selected-piece" value="black/king" />
+                    <img class="piece-radio" src="assets/pieces/black/king.PNG" />
+                </label>
+            </div>
+        </form>
+
+
+        <div id="instructions" >
+            <h1>Help</h1>
+            <p>Use menu on the left to select a piece
+                Click on board to place selected piece
+                You can drag the pieces around the board
+                Delete pieces by right-clicking on them
+            </p>
+        </div>
+
+        <div id="controls-menu" >
+            <button id="random-btn" >Random</button>
+            <button id="save-btn" >Save</button>
+            <button id="load-btn" >Load</button>
+        </div>
+
         <div id="canvas-wrapper" >
-            <h1>Chad-Chess</h1>
+            <h1>Chad Chess Test Constructor</h1>
             <canvas id="chess-board" ></canvas>    
         </div>
 
         <script src="chess.js"></script> 
+        <script src="editor.js"></script>
+        <script src="controls-menu.js"></script> 
     </body>
 </html>

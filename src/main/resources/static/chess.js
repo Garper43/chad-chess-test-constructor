@@ -1,5 +1,8 @@
 var canvas = document.getElementById("chess-board");
-var board = {};
+var board = {
+    name: "",
+    pieces: [...Array(6)].map(e => Array(6)),
+};
 loadBoard(-1);
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
@@ -74,16 +77,16 @@ async function loadBoard(id) {
     update();
 }
 
-async function validateMove(sx, sy, tx, ty) {
-    result = await getData(`/validatemove?id=${board.id}&s=${sx},${sy}&t=${tx},${ty}`).then((value) => {return value});
-    return result;
-}
+// async function validateMove(sx, sy, tx, ty) {
+//     result = await getData(`/validatemove?id=${board.id}&s=${sx},${sy}&t=${tx},${ty}`).then((value) => {return value});
+//     return result;
+// }
 
-async function move(sx, sy, tx, ty) {
-    result = await getData(`/move?id=${board.id}&s=${sx},${sy}&t=${tx},${ty}`).then((value) => {return value});
-    loadBoard(board.id);
-    return result;
-}
+// async function move(sx, sy, tx, ty) {
+//     result = await getData(`/move?id=${board.id}&s=${sx},${sy}&t=${tx},${ty}`).then((value) => {return value});
+//     loadBoard(board.id);
+//     return result;
+// }
 
 async function getData(link) {
     var data;
@@ -98,32 +101,32 @@ async function getData(link) {
     return data;
 }
 
-canvas.addEventListener("click", (ev) => {
-    ctx.fillStyle = palette.highlight;
-    x = ~~(ev.offsetX/canvas.offsetWidth*8);
-    y = ~~(ev.offsetY/canvas.offsetHeight*8);
+// canvas.addEventListener("click", (ev) => {
+//     ctx.fillStyle = palette.highlight;
+//     x = ~~(ev.offsetX/canvas.offsetWidth*8);
+//     y = ~~(ev.offsetY/canvas.offsetHeight*8);
     
-    if(!currentMove.moving) {
-        highlightMoves(x, y);
-        currentMove.moving = true;
-        currentMove.startX = x;
-        currentMove.startY = y;
-    } else {
-        move(currentMove.startX, currentMove.startY, x, y);
-        currentMove.moving = false;
-    }
+//     if(!currentMove.moving) {
+//         highlightMoves(x, y);
+//         currentMove.moving = true;
+//         currentMove.startX = x;
+//         currentMove.startY = y;
+//     } else {
+//         move(currentMove.startX, currentMove.startY, x, y);
+//         currentMove.moving = false;
+//     }
 
 
-});
+// });
 
-async function highlightMoves(x, y) {
-    var squareSize = canvas.offsetWidth/8;
-    var validMovesArr = await getData(`/getvalidmoves?id=${board.id}&s=${x},${y}`);
-    for(validMove of validMovesArr) {
-        ctx.beginPath()
-        ctx.arc((validMove.x+0.5)/8*canvas.offsetWidth, (validMove.y+0.5)/8*canvas.offsetHeight, squareSize*0.4, 0, 2 * Math.PI, false);
-        ctx.fill();
-        ctx.closePath();
-    }
+// async function highlightMoves(x, y) {
+//     var squareSize = canvas.offsetWidth/8;
+//     var validMovesArr = await getData(`/getvalidmoves?id=${board.id}&s=${x},${y}`);
+//     for(validMove of validMovesArr) {
+//         ctx.beginPath()
+//         ctx.arc((validMove.x+0.5)/8*canvas.offsetWidth, (validMove.y+0.5)/8*canvas.offsetHeight, squareSize*0.4, 0, 2 * Math.PI, false);
+//         ctx.fill();
+//         ctx.closePath();
+//     }
 
-}
+// }

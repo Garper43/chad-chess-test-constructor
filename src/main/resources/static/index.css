@@ -1,10 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+:root {
+    --white: #faf0e6;
+    --black: #141414;
+}
+
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
 body, html {
     margin: 0px;
     height: 100%;
     width: 100%;
-    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+}
+
+button {
+    transition: all 200ms;
+    padding: 0.2em;
+    border: var(--black) solid 0.2em;
+    background-color: var(--white);
+    box-shadow: #2c2b2b 0.4em 0.4em;
+    position: relative;
+}
+
+button:hover {
+    translate: 0.2em 0.2em;
+    box-shadow: var(--black) 0.2em 0.2em;
+    background-color: #cdc5bc;
 }
 
 #canvas-wrapper {
@@ -14,11 +38,10 @@ body, html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #9e5050;
+    background-color: #509e9e;
 }
 
 #canvas-wrapper h1 {
-    font-family: 'Press Start 2P', cursive;
     color: white;
     text-shadow: 5px 5px black;
 }
@@ -27,7 +50,7 @@ body, html {
     display: block;
     width: 80vh;
     height: 80vh;
-    border: 1vh solid rgb(20, 20, 20);
+    border: 1vh solid #141414;
 }
 
 #cat {
@@ -35,4 +58,94 @@ body, html {
     right: 5em;
     bottom: 0px;
     height: 10em;
+}
+
+#piece-select {
+    height: 100%;
+    position: absolute;
+    left: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* box-shadow: #000000 0.6em 0.6em 0.0em 0.2em; */
+}
+
+.pieces-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+}
+
+#piece-select img {
+    transition: all 200ms;
+    image-rendering: optimizeSpeed;
+    height: 10vh;
+    width: 10vh;
+    padding: 0.5em;
+    border: black 0.4em solid;
+    background-color: var(--white);
+    box-shadow: #2c2b2b 0.6em 0.6em;
+    position: relative;
+}
+
+#piece-select img:hover, #piece-select input[type="radio"]:checked+img {
+    transition: all 200ms;
+    translate: 0.4em 0.4em;
+    box-shadow: var(--black) 0.2em 0.2em;
+    background-color: #cdc5bc;
+}
+
+.piece-radio {
+    image-rendering: optimizeSpeed;
+    width: 10vh;
+}
+
+#instructions {
+    transition: all 200ms;
+    position: absolute;
+    right: -44em;
+    width: max-content;
+    height: min-content;
+    z-index: 1;
+}
+
+#instructions:hover {
+    right: 0em;
+}
+
+#instructions h1 {
+    transform: rotate(-90deg);
+    width: min-content;
+    position: relative;
+    bottom: -3.1em;
+    left: -0.7em;
+    font-size: 1.5em;
+    line-height: 0px;
+}
+
+#instructions p {
+    white-space: pre-line;
+    padding: 1em;
+    background-color: var(--white);
+    border: var(--black) 0.4em solid;
+    padding-left: 6em;
+}
+
+#controls-menu {
+    width: min-content;
+    position: absolute;
+    right: 3em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#controls-menu button {
+    width: 100%;
+    font-size: 2em;
+    padding: 0.2em;
+    text-align: center;
+    margin: 0.2em 0em;
+    border: var(--black) solid 0.2em;
 }
